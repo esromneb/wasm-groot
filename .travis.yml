@@ -14,7 +14,7 @@ before_install:
   - docker run -dit --name emscripten --user "$(id -u):$(id -g)" -v $(pwd):/src trzeci/emscripten:1.39.11-upstream bash
 
 before_script:
-  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default,-qtwebengine'
+  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default'
 
 # script:
 #   - ls -la
