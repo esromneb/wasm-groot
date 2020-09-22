@@ -1,0 +1,3 @@
+[submodule "lib/Groot"]
+	path = lib/Groot
+	url = git@github.com:esromneb/Groot.git
