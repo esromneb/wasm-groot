@@ -14,10 +14,10 @@ before_install:
   - docker run -dit --name emscripten --user "$(id -u):$(id -g)" -v $(pwd):/src trzeci/emscripten:1.39.11-upstream bash
 
 before_script:
-  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default'
   - docker exec -it emscripten bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtdeclarative -skip qtlocation -skip qtmultimedia -skip qtquickcontrols -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license -prefix $PWD/qtbase'
   - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j4 module-qtbase module-qtdeclarative'
 
+  # - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default'
 # script:
 #   - ls -la
 #   - ls -la out
