@@ -15,6 +15,8 @@ before_install:
 
 before_script:
   - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default'
+  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtdeclarative -skip qtlocation -skip qtmultimedia -skip qtquickcontrols -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license -prefix $PWD/qtbase'
+  - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j4 module-qtbase module-qtdeclarative'
 
 # script:
 #   - ls -la
