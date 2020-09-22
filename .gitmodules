@@ -1,6 +1,6 @@
 [submodule "lib/Groot"]
 	path = lib/Groot
-	url = git@github.com:esromneb/Groot.git
+	url = https://github.com/esromneb/Groot.git
 [submodule "lib/qt5"]
 	path = lib/qt5
-	url = git://code.qt.io/qt/qt5.git
+	url = https://code.qt.io/qt/qt5.git
