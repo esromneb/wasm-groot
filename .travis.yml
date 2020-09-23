@@ -21,8 +21,8 @@ before_script:
   - git submodule update --init lib/qt5
   - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default,-qtwebengine'
   - docker exec -it emscripten bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtlocation -skip qtmultimedia -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license   -ico -gif   -prefix $PWD/qtbase'
-  - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j2'
-  - docker exec -it emscripten bash -c 'cd lib/Groot && mkdir build && cd build && cmake .. && make -j2'
+  - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j4'
+  - docker exec -it emscripten bash -c 'cd lib/Groot && mkdir build && cd build && cmake .. && make -j4'
 
 # script:
 #   - ls -la
