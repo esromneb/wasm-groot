@@ -14,7 +14,7 @@ services:
   - docker
 
 before_install:
-  - docker run -dit --name emscripten --user "$(id -u):$(id -g)" -v $(pwd):/src trzeci/emscripten:1.39.11-upstream bash
+  - docker run -dit --name emscripten --security-opt seccomp:unconfined --user "$(id -u):$(id -g)" -v $(pwd):/src trzeci/emscripten:1.39.11-upstream bash
 
 before_script:
   - git submodule update --init --recursive lib/Groot
