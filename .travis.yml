@@ -1,5 +1,7 @@
 notifications:
   email: false
+
+git:
   submodules: false
 
 language: node_js
