@@ -13,16 +13,32 @@ sudo: required
 services:
   - docker
 
+
+# doesn't work on travis without seccomp:unconfined
+# see https://forum.qt.io/topic/97540/solved-qt-5-11-fails-to-configure-in-gentoo-prefix-with-could-not-find-qmake-spec/3
+
+
+# My image is based on:
+# trzeci/emscripten:1.39.11-upstream
+#
 before_install:
-  - docker run -dit --name emscripten --security-opt seccomp:unconfined --user "$(id -u):$(id -g)" -v $(pwd):/src trzeci/emscripten:1.39.11-upstream bash
+  - docker run -dit --name emscripten --security-opt seccomp:unconfined --user "$(id -u):$(id -g)" -v $(pwd):/src esromneb/qt-wasm:1.39.11_base bash
 
 before_script:
   - git submodule update --init --recursive lib/Groot
-  - git submodule update --init lib/qt5
-  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default,-qtwebengine'
-  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtlocation -skip qtmultimedia -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license   -ico -gif   -prefix $PWD/qtbase'
-  - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j4'
-  - docker exec -it emscripten bash -c 'cd lib/Groot && mkdir build && cd build && cmake .. && make -j4'
+  - docker exec -it emscripten bash -c 'cd lib/Groot && mkdir build && cd build && cmake -DQT5PATH=/root/qt5/qtbase/lib/cmake/Qt5 .. && make -j4'
+
+
+
+
+# this version compiles qt5 from scratch, it takes too long from travis :(
+#  - git submodule update --init lib/qt5
+#  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default,-qtwebengine'
+#  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtlocation -skip qtmultimedia -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license   -ico -gif   -prefix $PWD/qtbase'
+#  - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j4'
+
+
+
 
 # script:
 #   - ls -la
