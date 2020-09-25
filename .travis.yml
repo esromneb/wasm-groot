@@ -22,7 +22,7 @@ services:
 # trzeci/emscripten:1.39.11-upstream
 #
 before_install:
-  - docker run -dit --name emcc --security-opt seccomp:unconfined --user "$(id -u):$(id -g)" -v $(pwd):/src esromneb/qt-wasm:1.39.11_base bash
+  - docker run -dit --name emcc --security-opt seccomp:unconfined -v $(pwd):/src esromneb/qt-wasm:1.39.11_base bash
 
 before_script:
   - git submodule update --init --recursive lib/Groot
