@@ -22,20 +22,26 @@ services:
 # trzeci/emscripten:1.39.11-upstream
 #
 before_install:
-  - docker run -dit --name emscripten --security-opt seccomp:unconfined --user "$(id -u):$(id -g)" -v $(pwd):/src esromneb/qt-wasm:1.39.11_base bash
+  - docker run -dit --name emcc --security-opt seccomp:unconfined --user "$(id -u):$(id -g)" -v $(pwd):/src esromneb/qt-wasm:1.39.11_base bash
 
 before_script:
   - git submodule update --init --recursive lib/Groot
-  - docker exec -it emscripten bash -c 'cd lib/Groot && mkdir build && cd build && cmake -DQT5PATH=/root/qt5/qtbase/lib/cmake/Qt5 .. && make -j4'
+  - docker exec -it emcc bash -c 'ls /root'
+  - docker exec -it emcc bash -c 'ls /root/qt5'
+  - docker exec -it emcc bash -c 'ls /root/qt5/qtbase'
+  - docker exec -it emcc bash -c 'ls /root/qt5/qtbase/lib'
+  - docker exec -it emcc bash -c 'ls /root/qt5/qtbase/lib/cmake'
+  - docker exec -it emcc bash -c 'ls /root/qt5/qtbase/lib/cmake/Qt5'
+  - docker exec -it emcc bash -c 'cd lib/Groot && mkdir build && cd build && cmake -DQT5PATH=/root/qt5/qtbase/lib/cmake/Qt5 .. && make -j4'
 
 
 
 
 # this version compiles qt5 from scratch, it takes too long from travis :(
 #  - git submodule update --init lib/qt5
-#  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./init-repository --module-subset=default,-qtwebengine'
-#  - docker exec -it emscripten bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtlocation -skip qtmultimedia -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license   -ico -gif   -prefix $PWD/qtbase'
-#  - docker exec -it emscripten bash -c 'cd lib/qt5 && make -j4'
+#  - docker exec -it emcc bash -c 'cd lib/qt5 && ./init-repository --module-subset=default,-qtwebengine'
+#  - docker exec -it emcc bash -c 'cd lib/qt5 && ./configure -xplatform wasm-emscripten -nomake examples -skip qtconnectivity -skip qtlocation -skip qtmultimedia -skip qtsensors -skip qttools -skip qtwebsockets -skip qtwinextras -skip qtwebchannel -skip qtwebengine  -nomake examples -nomake tests -opensource -confirm-license   -ico -gif   -prefix $PWD/qtbase'
+#  - docker exec -it emcc bash -c 'cd lib/qt5 && make -j4'
 
 
 
