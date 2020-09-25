@@ -1,0 +1,47 @@
+{
+  "name": "wasm-groot",
+  "version": "0.1.0",
+  "description": "Wasm wrapper around qt5 desktop application Groot",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "jest --coverage",
+    "jestc": "jest --clearCache",
+    "jestw": "jest --watch --runInBand --detectOpenHandles",
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:esromneb/wasm-groot.git"
+  },
+  "keywords": [
+    "Behavior Tree",
+    "Groot",
+    "BehaviorTree.CPP"
+  ],
+  "author": "Benjamin Morse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/esromneb/wasm-groot/issues"
+  },
+  "homepage": "https://github.com/esromneb/wasm-groot#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.2",
+    "jest": "^26.4.2",
+    "jest-raw-loader": "^1.0.1",
+    "jest-watch-typeahead": "^0.5.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.3.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {}
+}
