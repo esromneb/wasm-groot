@@ -11,6 +11,9 @@ CLANG_WARN_FLAGS = \
 -Wshadow \
 # -Wconversion
 
+CLANG_OTHER_FLAGS = \
+-fPIC
+
 
 FNAME=main
 
@@ -18,19 +21,24 @@ all: wasm
 
 wasm: out/$(FNAME).wasm
 
-out/side.o: csrc/side.c
-	emcc csrc/side.c -c -o out/side.o
-
-
-out/$(FNAME).wasm: csrc/main.c out/side.o
+out:
 	mkdir -p out
+
+out/side.o: csrc/side.cpp
+	em++ csrc/side.cpp -c -o out/side.o $(CLANG_WARN_FLAGS) $(CLANG_OTHER_FLAGS)
+
+
+out/main.o: csrc/main.cpp
+	em++ csrc/main.cpp -c -o out/main.o $(CLANG_WARN_FLAGS) $(CLANG_OTHER_FLAGS)
+
+out/$(FNAME).wasm: out out/main.o out/side.o
 	emcc \
 	out/side.o \
-	csrc/main.c \
+	out/main.o \
 	-s MAIN_MODULE=1 \
 	-o out/$(FNAME).html \
 	-s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap", "addOnPostRun", "addFunction", "setValue", "getValue"]' \
-	$(CLANG_WARN_FLAGS)
+	$(CLANG_WARN_FLAGS) $(CLANG_OTHER_FLAGS)
 
 # 	'-std=c++2a' \
 
