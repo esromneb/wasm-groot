@@ -17,4 +17,6 @@ Before any of my changes the setup was this:
 * Groot's top cmake defines `Groot` which has main and links against the rest
 
 Now:
-* I'm using a new qmake project to replace
+* I'm using a new qmake project to replace the Groot target.
+Becaues cmake uses auto moc and auto rrc on the Groot target, I had to make a custom hand edited version of the resource file (`project/groot.grc`)
+* In the qmake project, I directly link to the `libbehaviortree_cpp_v3.so` `libQtNodeEditor.a` files.  This means that the cmake project needs to be built first, then the qmake project.
