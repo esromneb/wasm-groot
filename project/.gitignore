@@ -12,3 +12,8 @@
 /.qmake.stash
 /*.svg
 /hellosquare.*
+
+/groot.html
+/groot.js
+/groot.js*
+/groot.wasm
