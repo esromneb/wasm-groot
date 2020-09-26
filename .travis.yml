@@ -22,17 +22,11 @@ services:
 # trzeci/emscripten:1.39.11-upstream
 #
 before_install:
-  - docker run -dit --name emcc --security-opt seccomp:unconfined -v $(pwd):/src esromneb/qt-wasm:1.39.11_base bash
+  - docker run -dit --name emcc --security-opt seccomp:unconfined -v $(pwd):/src esromneb/qt-wasm:1.39.11_user2 bash
 
 before_script:
   - git submodule update --init --recursive lib/Groot
-  # - docker exec -it emcc bash -c 'ls /root'
-  # - docker exec -it emcc bash -c 'ls /root/qt5'
-  # - docker exec -it emcc bash -c 'ls /root/qt5/qtbase'
-  # - docker exec -it emcc bash -c 'ls /root/qt5/qtbase/lib'
-  # - docker exec -it emcc bash -c 'ls /root/qt5/qtbase/lib/cmake'
-  # - docker exec -it emcc bash -c 'ls /root/qt5/qtbase/lib/cmake/Qt5'
-  - docker exec -it emcc bash -c 'cd lib/Groot && mkdir build && cd build && cmake -DQT5PATH=/root/qt5/qtbase/lib/cmake/Qt5 .. && make -j4'
+  - docker exec -it emcc bash -c 'cd lib/Groot && mkdir build && cd build && cmake .. -DQT5PATH=~/qt5/qtbase/lib/cmake/Qt5 && make -j4'
   - docker exec -it emcc bash -c 'make wasm'
 
 
