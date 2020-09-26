@@ -12,7 +12,9 @@ CLANG_WARN_FLAGS = \
 # -Wconversion
 
 CLANG_OTHER_FLAGS = \
--fPIC
+-fPIC \
+-s RELOCATABLE=1 \
+-Ilib/Groot/depend/BehaviorTree.CPP/include \
 
 
 FNAME=main
@@ -38,15 +40,17 @@ out/$(FNAME).wasm: out out/main.o out/side.o
 	out/side.o \
 	out/main.o \
 	lib/Groot/build/lib/libbehaviortree_cpp_v3.so \
-	lib/Groot/build/lib/libQtNodeEditor.a \
-	lib/Groot/build/libGroot.a \
 	-s WASM_OBJECT_FILES=0 \
 	-s MAIN_MODULE=1 \
 	-o out/$(FNAME).html \
 	-s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap", "addOnPostRun", "addFunction", "setValue", "getValue"]' \
 	$(CLANG_WARN_FLAGS) $(CLANG_OTHER_FLAGS)
 
+# 	lib/Groot/build/libbehavior_tree_editor.so \
 # 	'-std=c++2a' \
+# 	/root/qt5/qtbase/lib/libQt5Core.a \
+# 	lib/Groot/build/QtNodeEditor/libGrootDeps.a \
+# 	lib/Groot/build/libGroot.so \
 
 
 
