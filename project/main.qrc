@@ -1,6 +1,5 @@
 <RCC>
     <qresource>
         <file>main.qml</file>
-        <file>stylesheet.qss</file>
     </qresource>
 </RCC>
