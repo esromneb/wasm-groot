@@ -6,6 +6,10 @@ MOC_DIR = .moc
 INCLUDEPATH += ../lib/Groot/depend/BehaviorTree.CPP/src/
 INCLUDEPATH += ../lib/Groot/depend/BehaviorTree.CPP/include/
 INCLUDEPATH += ../lib/Groot/bt_editor/
+INCLUDEPATH += ../lib/Groot/
+INCLUDEPATH += ../lib/Groot/QtNodeEditor/include
+
+DEFINES += NODE_EDITOR_STATIC
 
 SOURCES += main.cpp 
 # SOURCES += ../lib/Groot/bt_editor/main.cpp
