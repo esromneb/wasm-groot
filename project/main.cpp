@@ -233,10 +233,17 @@ int main(int argc, char **argv) {
     app.setStyleSheet( style );
 
 
-  MainWindow win( GraphicMode::EDITOR );
-std::cout << "empty: " << win.saveToXML().toStdString() << "\n";
-win.setWindowTitle("Groot");
-win.show();
-return app.exec();
+    MainWindow win( GraphicMode::EDITOR );
+
+    std::cout << "empty: " << win.saveToXML().toStdString() << "\n";
+
+    tryBt();
+
+
+    win.setWindowTitle("Groot");
+    win.show();
+
+
+    return app.exec();
 
 }
