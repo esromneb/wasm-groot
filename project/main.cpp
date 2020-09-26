@@ -181,27 +181,27 @@ void tryBt(void) {
 int main2(int argc, char *argv[]);
 
 
-int main3(int argc, char **argv)
-{
-    QGuiApplication app(argc, argv);
+// int main3(int argc, char **argv)
+// {
+//     QGuiApplication app(argc, argv);
     
-    QQuickView view;
-    view.setSource(QUrl("qrc:///main.qml"));
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.showFullScreen();
+//     QQuickView view;
+//     view.setSource(QUrl("qrc:///main.qml"));
+//     view.setResizeMode(QQuickView::SizeRootObjectToView);
+//     view.showFullScreen();
 
-    tryBt();
-    cout << "Above exec" << std::endl;
-
-
-    qRegisterMetaType<AbsBehaviorTree>();
+//     tryBt();
+//     cout << "Above exec" << std::endl;
 
 
-    return app.exec();
+//     qRegisterMetaType<AbsBehaviorTree>();
 
-    // return main2(argc, argv);
 
-}
+//     return app.exec();
+
+//     // return main2(argc, argv);
+
+// }
 
 int main(int argc, char **argv) {
 
@@ -231,5 +231,12 @@ int main(int argc, char **argv) {
     styleFile.open( QFile::ReadOnly );
     QString style( styleFile.readAll() );
     app.setStyleSheet( style );
+
+
+  MainWindow win( GraphicMode::EDITOR );
+std::cout << "empty: " << win.saveToXML().toStdString() << "\n";
+win.setWindowTitle("Groot");
+win.show();
+return app.exec();
 
 }
