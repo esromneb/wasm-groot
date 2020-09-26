@@ -15,21 +15,26 @@ SOURCES += main.cpp
 # SOURCES += ../lib/Groot/bt_editor/main.cpp
 
 FORMS += ../lib/Groot/bt_editor/about_dialog.ui
-FORMS += ../lib/Groot/bt_editor/action_form.ui
 FORMS += ../lib/Groot/bt_editor/mainwindow.ui
+FORMS += ../lib/Groot/bt_editor/action_form.ui
+FORMS += ../lib/Groot/bt_editor/sidepanel_editor.ui
+FORMS += ../lib/Groot/bt_editor/sidepanel_replay.ui
 FORMS += ../lib/Groot/bt_editor/startup_dialog.ui
-
+FORMS += ../lib/Groot/bt_editor/custom_node_dialog.ui
 
 
 
 
 SOURCES += ../lib/Groot/bt_editor/mainwindow.cpp
+SOURCES += ../lib/Groot/bt_editor/editor_flowscene.cpp
 SOURCES += ../lib/Groot/bt_editor/utils.cpp
 SOURCES += ../lib/Groot/bt_editor/bt_editor_base.cpp
 SOURCES += ../lib/Groot/bt_editor/graphic_container.cpp
 SOURCES += ../lib/Groot/bt_editor/startup_dialog.cpp
+SOURCES += ../lib/Groot/bt_editor/sidepanel_editor.cpp
+SOURCES += ../lib/Groot/bt_editor/sidepanel_replay.cpp
+SOURCES += ../lib/Groot/bt_editor/custom_node_dialog.cpp
 SOURCES += ../lib/Groot/bt_editor/XML_utilities.cpp
-
 
 
 
