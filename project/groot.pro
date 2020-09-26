@@ -21,6 +21,7 @@ FORMS += ../lib/Groot/bt_editor/sidepanel_editor.ui
 FORMS += ../lib/Groot/bt_editor/sidepanel_replay.ui
 FORMS += ../lib/Groot/bt_editor/startup_dialog.ui
 FORMS += ../lib/Groot/bt_editor/custom_node_dialog.ui
+FORMS += ../lib/Groot/bt_editor/sidepanel_monitor.ui
 
 
 
@@ -35,6 +36,11 @@ SOURCES += ../lib/Groot/bt_editor/sidepanel_editor.cpp
 SOURCES += ../lib/Groot/bt_editor/sidepanel_replay.cpp
 SOURCES += ../lib/Groot/bt_editor/custom_node_dialog.cpp
 SOURCES += ../lib/Groot/bt_editor/XML_utilities.cpp
+SOURCES += ../lib/Groot/bt_editor/sidepanel_monitor.cpp
+
+
+HEADERS += ../lib/Groot/QtNodeEditor/include/nodes/internal/*.hpp
+HEADERS += ../lib/Groot/bt_editor/*.h
 
 
 

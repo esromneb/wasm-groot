@@ -8,6 +8,7 @@
 /qrc_*.cpp
 /*.js
 /.obj
+/.moc
 /.qmake.cache
 /.qmake.stash
 /*.svg
