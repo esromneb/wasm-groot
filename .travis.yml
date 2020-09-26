@@ -26,8 +26,8 @@ before_install:
 
 before_script:
   - git submodule update --init --recursive lib/Groot
-  - docker exec -it emcc bash -c 'ls ~/qt5/qtbase/lib/cmake/Qt5'
-  - docker exec -it emcc bash -c 'cd lib/Groot && mkdir build && cd build && cmake .. -DQT5PATH=~/qt5/qtbase/lib/cmake/Qt5 && make -j4'
+  - docker exec -it emcc bash -c 'ls /home/emscripten/qt5/qtbase/lib/cmake/Qt5'
+  - docker exec -it emcc bash -c 'cd lib/Groot && mkdir build && cd build && cmake .. -DQT5PATH=/home/emscripten/qt5/qtbase/lib/cmake/Qt5 && make -j4'
   - docker exec -it emcc bash -c 'make wasm'
 
 
