@@ -26,7 +26,8 @@ SOURCES += ../lib/Groot/bt_editor/graphic_container.cpp
 SOURCES += ../lib/Groot/bt_editor/startup_dialog.cpp
 SOURCES += ../lib/Groot/bt_editor/XML_utilities.cpp
 
-
+# HEADERS += ../lib/Groot/QtNodeEditor/include/nodes/internal/*.hpp
+HEADERS += ../lib/Groot/bt_editor/*.h
 
 
 # lib/Groot/build/lib/libbehaviortree_cpp_v3.so \
