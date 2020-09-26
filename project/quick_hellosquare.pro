@@ -74,4 +74,7 @@ LIBS += ../lib/Groot/build/lib/libbehaviortree_cpp_v3.so
 
 RESOURCES += main.qrc
 RESOURCES += groot.qrc
+RESOURCES += ../lib/Groot/bt_editor/resources/icons.qrc
+
+
 QT += quick gui core widgets svg xml
