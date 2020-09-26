@@ -6,6 +6,7 @@ MOC_DIR = .moc
 INCLUDEPATH += ../lib/Groot/depend/BehaviorTree.CPP/src/
 INCLUDEPATH += ../lib/Groot/depend/BehaviorTree.CPP/include/
 INCLUDEPATH += ../lib/Groot/bt_editor/
+INCLUDEPATH += ../lib/Groot/bt_editor/models
 INCLUDEPATH += ../lib/Groot/
 INCLUDEPATH += ../lib/Groot/QtNodeEditor/include
 
@@ -26,6 +27,8 @@ FORMS += ../lib/Groot/bt_editor/sidepanel_monitor.ui
 
 
 
+SOURCES += ../lib/Groot/bt_editor/models/BehaviorTreeNodeModel.cpp
+SOURCES += ../lib/Groot/bt_editor/models/SubtreeNodeModel.cpp
 SOURCES += ../lib/Groot/bt_editor/mainwindow.cpp
 SOURCES += ../lib/Groot/bt_editor/editor_flowscene.cpp
 SOURCES += ../lib/Groot/bt_editor/utils.cpp
@@ -37,10 +40,12 @@ SOURCES += ../lib/Groot/bt_editor/sidepanel_replay.cpp
 SOURCES += ../lib/Groot/bt_editor/custom_node_dialog.cpp
 SOURCES += ../lib/Groot/bt_editor/XML_utilities.cpp
 SOURCES += ../lib/Groot/bt_editor/sidepanel_monitor.cpp
+# SOURCES += ../lib/Groot/bt_editor/models/RootNodeModel.cpp
 
 
 HEADERS += ../lib/Groot/QtNodeEditor/include/nodes/internal/*.hpp
 HEADERS += ../lib/Groot/bt_editor/*.h
+HEADERS += ../lib/Groot/bt_editor/models/*.hpp
 
 
 
