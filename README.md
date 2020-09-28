@@ -2,10 +2,6 @@
 
 
 
-# See Also
-* https://doc.qt.io/qt-5/wasm.html
-* https://wiki.qt.io/Building_Qt_5_from_Git#Getting_the_source_code
-
 
 # Development
 Getting this to build was at the edge of my capability.  I don't know much about Qt5 and so that did't help.
@@ -20,3 +16,10 @@ Now:
 * I'm using a new qmake project to replace the Groot target.
 Becaues cmake uses auto moc and auto rrc on the Groot target, I had to make a custom hand edited version of the resource file (`project/groot.grc`)
 * In the qmake project, I directly link to the `libbehaviortree_cpp_v3.so` `libQtNodeEditor.a` files.  This means that the cmake project needs to be built first, then the qmake project.
+
+
+
+# See Also
+* https://doc.qt.io/qt-5/wasm.html
+* https://wiki.qt.io/Building_Qt_5_from_Git#Getting_the_source_code
+* https://www.qt.io/blog/2019/06/26/qt-webassembly-multithreading
