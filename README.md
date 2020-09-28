@@ -1,5 +1,18 @@
 # wasm-groot
 
+# Instructions
+I'm using a docker from https://hub.docker.com/repository/docker/esromneb/qt-wasm
+
+From inside the docker:
+```bash
+cd cd lib/Groot && mkdir build && cd build && cmake .. -DQT5PATH=/home/emscripten/qt5/qtbase/lib/cmake/Qt5 && make -j2
+cd project && qmake && make -j2
+```
+
+From your host:
+```bash
+sudo python -m SimpleHTTPServer 9000
+```
 
 
 
