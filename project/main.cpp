@@ -205,6 +205,12 @@ int main2(int argc, char *argv[]);
 
 int main(int argc, char **argv) {
 
+    // auto qt_qpa_core_dispatcher
+    QAbstractEventDispatcher *eventDispatcher = QAbstractEventDispatcher::instance();
+    // QAbstractEventDispatcher *eventDispatcher2 = QAbstractEventDispatcher::qt_qpa_core_dispatcher();
+
+    cout << "eventDispatcher: " << eventDispatcher << "\n";
+
     QApplication app(argc, argv);
     app.setApplicationName("Groot");
     app.setWindowIcon(QPixmap(":/icons/BT.png"));
@@ -238,12 +244,19 @@ int main(int argc, char **argv) {
     std::cout << "empty: " << win.saveToXML().toStdString() << "\n";
 
     tryBt();
+    cout << "--------\n";
+
+    win._replay_widget->ddebug();
+
+    cout << "--------\n";
+
+    
 
 
     win.setWindowTitle("Groot");
     win.show();
-
-
     return app.exec();
+
+    // return 0;
 
 }

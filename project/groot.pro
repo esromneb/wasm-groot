@@ -46,6 +46,7 @@ SOURCES += ../lib/Groot/bt_editor/sidepanel_replay.cpp
 SOURCES += ../lib/Groot/bt_editor/custom_node_dialog.cpp
 SOURCES += ../lib/Groot/bt_editor/XML_utilities.cpp
 SOURCES += ../lib/Groot/bt_editor/sidepanel_monitor.cpp
+SOURCES += ../lib/Groot/bt_editor/finddialog.cpp
 
 
 
