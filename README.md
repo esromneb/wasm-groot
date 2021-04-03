@@ -1,4 +1,8 @@
 # wasm-groot
+The goal of this project is to get Groot to run 100% on the web. This project uses the qt5 wasm, but is stuck, and work-in-progress. I can't get threads to work in wasm as of now, and about 10% of this project uses this as a callback method. If I can remove these callbacks I can finally get this to work.
+
+# Travis
+The Travis CI is here https://travis-ci.com/github/esromneb/wasm-groot
 
 # Instructions
 I'm using a docker from https://hub.docker.com/repository/docker/esromneb/qt-wasm
